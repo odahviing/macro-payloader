@@ -17,7 +17,7 @@ namespace MacroBuilder
 
     class Program
     {
-        private static uint m_blocksize = 600000;
+        private static uint m_blocksize = 300000;
         internal static uint m_linesize = 120;
 
         internal static UInt32 BlockSize
@@ -70,9 +70,6 @@ namespace MacroBuilder
                         string text = "";
                         int count = 0;
 
-                        // Console.WriteLine((j * Program.BlockSize).ToString() + " - " +  Math.Min((j + 1) * Program.BlockSize, hex.Length));
-                        // continue;
-
                         for (long i = j * Program.BlockSize; i < Math.Min((j + 1) * Program.BlockSize, hex.Length) ; i++)
                         {
                             if (hex[i] == '-')
@@ -115,8 +112,8 @@ namespace MacroBuilder
             else
             {
                 // Debug Use
-                exeFile = @"Y:\B*\Tools\MacroBuilder\bin\Release\VsHub.exe";
-                outFile = @"Y:\B*\Tools\MacroBuilder\bin\Release\VsHub.exe.txt";
+                exeFile = "here.exe";
+                outFile = "here.txt";
             }
         }
 
