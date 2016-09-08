@@ -1,4 +1,7 @@
 # Macro-Creator
 
-Tool that create Macro payload to insert into office files.
-Get .exe file as arg
+Tool I created that building your a Macro payload cose to be insert into your office files.
+
+You can choose any exe file, and in any size, and run it.
+
+<b>MacroPayloader.exe [exe-file] [text-file]</b>
