@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 
@@ -95,11 +96,18 @@ namespace MacroBuilder
                         ");
                     }
                 }
+                Console.WriteLine("Done! - Version " + getVersion());
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
             }
+        }
+
+        private static string getVersion()
+        {
+            FileVersionInfo value = FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            return value.FileMajorPart + "." + value.FileMinorPart;
         }
 
         private static void GetArgs(string[] args, out string exeFile, out string outFile)
@@ -111,9 +119,10 @@ namespace MacroBuilder
             }
             else
             {
-                // Debug Use
-                exeFile = "here.exe";
-                outFile = "here.txt";
+                string filename = Process.GetCurrentProcess().ProcessName;
+                Console.WriteLine(String.Format("Version {1} - Missing Arguments\n{0}.exe [exe-file] [text-file]", filename,getVersion()));
+                exeFile = outFile = "";
+                Environment.Exit(0);
             }
         }
 
